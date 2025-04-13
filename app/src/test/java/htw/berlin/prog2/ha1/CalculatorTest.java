@@ -104,5 +104,42 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+
+    @Test
+    @DisplayName("should not delete saved numbers after one click")
+    void testClearNumbers(){
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(2);
+
+        calc.pressClearKey();
+
+        double expected = 12;
+        double actual = calc.getLatestValue();
+
+        assertEquals(expected, actual);
+
+    }
+
+    /* 
+     * Fehler zuerst gefunden von Nikolaos Pazartziklis, der mich bei 
+     * der Suche nach dem zweiten Fehler unterstützt hat, da er die Aufgabe
+     * bereits gelöst hatte
+    */
+    @Test
+    @DisplayName("should display 'Error' instead of 'Infinity'")
+    void testDisplayError(){
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(0);
+        calc.pressUnaryOperationKey("1/x");
+
+        String expected = "Error";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
 }
 
