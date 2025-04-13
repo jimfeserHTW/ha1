@@ -34,7 +34,7 @@ public class Calculator {
      * Setzt clear wieder auf false, um zu verhindern, dass bei einmaligem "C" drücken alle 
      * zwischengespeicherten Werte gelöscht werden
      */
-    public void setClearFalse(){
+    private void setClearFalse(){
         clear = false;
     }
 
